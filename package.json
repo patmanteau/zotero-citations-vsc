@@ -2,7 +2,7 @@
     "name": "zotero-citations-vsc",
     "displayName": "Zotero Citations",
     "description": "Pick and insert Zotero citations",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "publisher": "patmanteau",
     "engines": {
         "vscode": "^1.21.0"
@@ -11,16 +11,42 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "onCommand:zotero-citations-vsc.pickCitation"
     ],
-    "main": "./out/extension",
+    "main": "./out/main",
     "contributes": {
         "commands": [
             {
-                "command": "extension.sayHello",
-                "title": "Hello World"
+                "command": "zotero-citations-vsc.pickCitation",
+                "title": "Pick Citation",
+                "category": "Zotero Citations"
             }
-        ]
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Pandoc Citations configuration",
+            "properties": {
+                "zotero-citations-vsc.format": {
+                    "type": "string",
+                    "enum": [
+                        "latex",
+                        "cite",
+                        "mmd",
+                        "pandoc",
+                        "asciidoctor-bibtex",
+                        "formatted-citation"
+                    ],
+                    "default": "pandoc",
+                    "description": "Selects the format of citekeys inserted by Zotero Citations. Valid options: \"latex\", \"cite\" (an alias for latex with the assumption you want the cite command to be cite), \"mmd\", \"pandoc\", \"asciidoctor-bibtex\" and \"formatted-citation\". See https://retorque.re/zotero-better-bibtex/cayw/ for details."
+                }
+            }
+        },
+        "keybindings": [{
+            "command": "zotero-citations-vsc.pickCitation",
+            "key": "ctrl+alt+z",
+            "mac": "ctrl+cmd+z",
+            "when": "editorTextFocus"
+        }]
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
@@ -35,5 +61,8 @@
         "tslint": "^5.8.0",
         "@types/node": "^7.0.43",
         "@types/mocha": "^2.2.42"
+    },
+    "dependencies": {
+        "axios": "^0.18.0"
     }
 }

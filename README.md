@@ -1,9 +1,18 @@
-# zotero-citations-vsc README
+# Zotero Citations for Visual Studio Code
 
-This is the README for your extension "zotero-citations-vsc". After writing up a brief description, we recommend including the following sections.
+Search your Zotero library to pick one, two or even many items; then have their citekeys inserted into the current document. Citekey format is configurable; there's support for Pandoc, MultiMarkdown, LaTeX, Asciidoctor and plain text citation.
+
+Based on [*Cite as you Write*](https://retorque.re/zotero-better-bibtex/cayw/) courtesy of [Better Bib(La)TeX](https://retorque.re/zotero-better-bibtex/).
 
 ## Features
 
+Simple insertion of Zotero citekeys:
+
+1. Hit `Ctrl+Alt+Z` (or run Zotero Citations: Pick citation from the Command Palette)
+2. Search and pick items in Zotero's *Cite as you Write* popup. `Left-click` an item to add further details (page number, prefix, suffix)
+3. Hit `Enter`
+
+<!--
 Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
 
 For example if there is an image subfolder under your extension project workspace:
@@ -11,55 +20,25 @@ For example if there is an image subfolder under your extension project workspac
 \!\[feature X\]\(images/feature-x.png\)
 
 > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+-->
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- [Zotero](https://www.zotero.org/download/) (must be running)
+- [Better Bib(La)TeX](http://retorque.re/zotero-better-bibtex/installation/)
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+This extension contributes the following setting:
 
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+* `zotero-citations-vsc.format`: Sets the format of citekeys inserted by Zotero Citations. Valid options: \"latex\", \"cite\" (an alias for latex with the assumption you want the cite command to be cite), \"mmd\", \"pandoc\", \"asciidoctor-bibtex\" and \"formatted-citation\". See [Better Bib(La)TeX's documentation](https://retorque.re/zotero-better-bibtex/cayw/) for details.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+On my system, Zotero's picker dialog occasionally opens in the background. If the picker doesn't show up right away, alt-tabbing or selecting it via the taskbar usually does the trick.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.1.0
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Initial release of Zotero Citations
